@@ -5,7 +5,6 @@ const
 	config = require('./config/webpack.config'),
 	compile = webpack(config);
 
-webpack(config, () => console.log('ㅋㅋ'));
 module.exports = (app) => {
 	app.use(webpackMiddleware(compile, {
 		noInfo: true,
@@ -15,6 +14,7 @@ module.exports = (app) => {
 		}
 	}));
 	app.use(webpackHotMiddleware(compile, {
-		log: console.log
+		log: console.log,
+		heartbeat: 2000
 	}));
 };
