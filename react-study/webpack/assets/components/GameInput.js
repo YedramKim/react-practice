@@ -6,7 +6,8 @@ class GameInput extends Component {
 
 		this.state = {
 			title: '',
-			year: ''
+			year: '',
+			v1: ''
 		};
 
 		this._formSubmit = this._formSubmit.bind(this);
@@ -18,12 +19,17 @@ class GameInput extends Component {
 		});
 	}
 	_formSubmit () {
-		this.submitHandler(this.state.title, this.state.year);
+		this.props.submitHandler(this.state.title, this.state.year);
 	}
-	submitHandler () {}
+	componentWillReceiveProps ({v1}) {
+		this.setState({
+			v1
+		});
+	}
 	render () {
 		return (
 			<div>
+				<input type="text" value={this.state.v1}/>
 				<input type="text" name="title" placeholder="title" onChange={this._getValueInput} value={this.state.title} />
 				<input type="text" name="year" placeholder="year" onChange={this._getValueInput} value={this.state.year} />
 				<button onClick={this._formSubmit}>제출</button>

@@ -11,54 +11,8 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			headerTitle: 'Legend of Zelda',
-			games: [
-				{
-					title: 'Ocarina of Time',
-					year: 1998
-				},
-				{
-					title: 'Wind Waker',
-					year: 2002
-				},
-				{
-					title: 'Twilight Princess',
-					year: 2006
-				},
-				{
-					title: 'Skyward Sword',
-					year: 2011
-				},
-				{
-					title: 'Breath of the Wild',
-					year: 2016
-				}
-			]
+			headerTitle: 'Legend of Zelda'
 		};
-		const newGame = {
-			title: '신들의 트라이포스',
-			year: 1992
-		};
-		setTimeout(() => {
-			this.setState({
-				games: update(
-					this.state.games,
-					{
-						$push: [newGame],
-						4: {
-							title: {
-								$set: '야숨'
-							}
-						}
-					}
-				)
-			});
-		}, 1000);
-	}
-	_updateTitle () {
-		this.setState({
-			headerTitle: 'Legend of Link'
-		});
 	}
 	render () {
 		return [
@@ -66,8 +20,6 @@ class App extends Component {
 			<Content
 				content={this.props.contentBody}
 				character={this.props.character}
-				time={this.state.time}
-				gameList={this.state.games}
 				key="2"/>
 		];
 	}
