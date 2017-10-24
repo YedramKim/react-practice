@@ -4,7 +4,6 @@ import Content from './Content';
 // 15.5 이상부터는 prop-types 라이브러리 이용
 // https://github.com/facebook/prop-types 참고
 import PropTypes from 'prop-types';
-import update from 'react-addons-update';
 
 class App extends Component {
 	constructor (props) {
